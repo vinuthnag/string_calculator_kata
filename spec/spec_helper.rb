@@ -43,4 +43,10 @@ RSpec.describe StringCalculator do
     expect(StringCalculator.new.add("//[**][%%]\n1**2%%3")).to eq(6)
   end
 
+  it 'tracks how many times add has been called' do
+    calc = StringCalculator.new
+    3.times { calc.add("1,2") }
+    expect(calc.get_called_count).to eq(3)
+  end
+
 end
